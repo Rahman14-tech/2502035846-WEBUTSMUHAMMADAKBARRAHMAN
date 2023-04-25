@@ -105,7 +105,8 @@ class portofolioController extends Controller
             $affectedRecords = portfolio::where("id", $id)->update(["description" => $request->description]);
         }
         if($request->category != null && $request->category != ''){
-            $affectedRecords = portfolio::where("id", $id)->update(["category_id" => $request->category]);
+            $idForeign = DB::select('SELECT id FROM categories WHERE Category = :category', [':category'=>$request->category]);
+            $affectedRecords = portfolio::where("id", $id)->update(["category_id" => $idForeign[0]->id]);
         }
         return redirect('admin');
     }
