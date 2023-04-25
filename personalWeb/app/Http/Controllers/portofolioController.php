@@ -93,7 +93,6 @@ class portofolioController extends Controller
     public function show($id, Request $request)
     {
         $porto = DB::table('portfolios')->where('id','=',$id)->get();
-        dd($request->imageUpdate);
         if($request->file('image') != null && $request->file('image') != ''){
             $imageUpdate = $request->file('imageUpdate')->store('post-images');
             File::delete('storage/'.$porto[0]->image_file_route);
