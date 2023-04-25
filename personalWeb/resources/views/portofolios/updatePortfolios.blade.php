@@ -209,7 +209,7 @@
     <div id="emailHelp" class="form-text"></div>
     <button type="submit" class="btn btn-success">submit</button>
     </form>
-  <form action="{{route('portofolios.update',[$id])}}" method="POST" enctype="multipart/form-data">
+  <form action="{{route('portofolios.update',[$id])}}" method="PUT" enctype="multipart/form-data">
     @csrf
     <div id="emailHelp" class="form-text"></div>
     <label for="exampleInputPassword1" class="form-label">Title</label>
